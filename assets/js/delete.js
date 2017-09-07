@@ -31,7 +31,7 @@
 
    $(function(){
 
-      $('#student_id').selectpicker({
+      $('#recipe_id').selectpicker({
         size: 4,
         title: 'Select'
       });

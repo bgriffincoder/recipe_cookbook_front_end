@@ -50,24 +50,25 @@
     //
     // //this toggles all p's to display, not the ones within this one recipe
     // //    //$("p").toggleClass();
-
-
-
-   // 	//code goes here
-    // let addRecipe = {
-    //   title: "Chile",
-    //   description: "Tasty and spicy chili made with beef and beans - perfect for dinner!",
-    //
-    // }
-  //   let table = $('#studentTable').DataTable({
-  //         buttons: [
-  //             'copy', 'excel', 'pdf', 'csv','print'
-  //         ],
-  //          colReorder: true,
-  //          "scrollX": true
-  //      });
+   // 
    //
-  //  table.buttons().container().appendTo( $('.col-sm-6:eq(0)', table.table().container() ) );
+   //
+   // 	//code goes here
+   //  let addRecipe = {
+   //    title: "Chile",
+   //    description: "Tasty and spicy chili made with beef and beans - perfect for dinner!",
+   //
+   //  }
+   //  let table = $('#studentTable').DataTable({
+   //        buttons: [
+   //            'copy', 'excel', 'pdf', 'csv','print'
+   //        ],
+   //         colReorder: true,
+   //         "scrollX": true
+   //         "searching": true;
+   //     });
+   //
+   // table.buttons().container().appendTo( $('.col-sm-6:eq(0)', table.table().container() ) );
 
 
    })
