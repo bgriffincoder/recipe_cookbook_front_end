@@ -7,7 +7,7 @@
 
 var Client = require('node-rest-client').Client;
 var client = new Client();
-var endpoint = "https://evening-lake-62189.herokuapp.com/recipe"
+var endpoint = "https://evening-lake-62189.herokuapp.com/recipes"
 
 module.exports = {
 
@@ -49,6 +49,19 @@ module.exports = {
         return res.view('read', {recipes: data});
     }).on('error', function (err) {
         return res.view('read', {error: { message: "There was an error getting the recipes"}});
+    });
+
+  },
+
+  /**
+   * `RecipeController.search()`
+   */
+  search: function (req, res) {
+
+    client.get(endpoint, function (data, response) {
+        return res.view('search', {recipes: data});
+    }).on('error', function (err) {
+        return res.view('search', {error: { message: "There was an error getting the recipes"}});
     });
 
   },
