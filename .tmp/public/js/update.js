@@ -44,6 +44,7 @@
 
    $(function(){
 
+/*
       //store the element ID of the drop down select
       let selectForm = $("#student_id");
 
@@ -158,6 +159,7 @@ $("#updateStudentForm").validate(
    //    })
    //
    //
+  */
    })
 
  })();

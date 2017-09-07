@@ -28,6 +28,7 @@
 
   $(function(){
 
+/*
     //add method to validator to check date format
     $.validator.addMethod(
         "customDate",
@@ -85,7 +86,7 @@
 
       });
 
-
+*/
 
   })
 

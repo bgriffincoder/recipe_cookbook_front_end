@@ -42,9 +42,12 @@ module.exports.routes = {
   *                                                                          *
   ***************************************************************************/
 
-  '/create':'RecipeController.create',
-  '/'      :'RecipeController.read',
-  '/update':'RecipeController.update',
-  '/delete':'RecipeController.delete'
-
+  '/create'   :'RecipeController.create',
+  '/'         :'RecipeController.read',
+  '/update'   :'RecipeController.update',
+  '/delete'   :'RecipeController.delete',
+  '/createinstruction':'RecipeController.createInstruction',
+  '/:id/createinstruction':'RecipeController.createInstruction',
+  '/:id'      :'RecipeController.show'
+  // '/createInstruction':'RecipeController.read'
 };
