@@ -41,6 +41,34 @@
 
      })
 
+     //function to call api
+     function callAPI(url){
+        $.get(url, function(recipes){
+           console.log(recipes.length)
+           for(let i=0; i < recipes.length; i++){
+           $("#recipecard").append(recipes.title)
+       }
+        })
+     }
+
+     callAPI()
+
+
+     //code for when the search button is clicked
+     $("#submit_button").click(function(event){
+        event.preventDefault()
+       if($("#recipeSearch").val() !== ""){
+         let searchParam = $("#recipeSearch").val()
+         console.log(searchParam)
+         let newURL = "back end endpoint/" + searchParam
+         $("#recipecard").html("")
+         callAPI(newURL)
+       }else{
+         $("#recipecard").html("")
+         //getCharacters(initialURL)
+       }
+     })
+
     // $("button").click(function(){
     //   console.log($(this).parent())
     //   $(this).parent().toggleClass()

@@ -1,0 +1,36 @@
+<ol class="breadcrumb">
+    <li class="active">Search</a></li>
+</ol>
+
+<br/>
+
+<%- partial ('partials/statusmessage.ejs') %>
+
+<h2>Recipes</h2>
+
+<table class="table table-striped table-bordered" id="recipeTable" style="width:100%">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Title</th>
+      <th>Description</th>
+      <th>Number of Minutes</th>
+      <th>Ingredients</th>
+      <th>Instructions</th>
+    </tr>
+  </thead>
+  <tbody>
+  <% if(typeof recipes != "undefined" && recipes.length > 0){ %>
+    <% recipes.forEach(function(recipe){ %>
+      <tr>
+        <td><%= recipe.id %></td>
+        <td><%= recipe.title %></td>
+        <td><%= recipe.description %></td>
+        <td><%= recipe.numberOfMinutes %></td>
+        <td><%= recipe.ingredients %></td>
+        <td><%= recipe.instructions %></td>
+      </tr>
+    <% }) %>
+  <% } %>
+  </tbody>
+</table>
