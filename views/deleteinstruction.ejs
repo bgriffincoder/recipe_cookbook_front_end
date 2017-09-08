@@ -1,0 +1,40 @@
+<ol class="breadcrumb">
+    <li><a href="/">Home</a></li>
+    <li class="active">Delete Instruction</a></li>
+</ol>
+
+<br/>
+
+<%- partial ('partials/statusmessage.ejs') %>
+
+<h2>Delete Instruction</h2>
+
+<form action="#" method="GET">
+  <div class="form-group">
+    <label for="recipe_id">SELECT A RECIPE TO DELETE AN INSTRUCTION</label><br/>
+    <select data-header="Select a recipe" id="recipe_id" name="recipe_id">
+    <% if(recipes && recipes.length){ %>
+      <% recipes.forEach(function(recipe){ %>
+        <option class="recipeOptionSelect" data-icon="glyphicon-heart" value="<%= recipe.id %>">
+          <%= recipe.title %>
+        </option>
+      <% }) %>
+    <% } %>
+    </select>
+  </div>
+</form>
+
+<table class="table table-striped table-bordered" id="deleteInstructionTable" style="width:100%">
+  <thead>
+    <tr>
+      <th>Delete</th>
+      <th>Instruction</th>
+    </tr>
+  </thead>
+  <tbody id="instructionTable">
+    <tr>
+      <td></td>
+      <td></td>
+    </tr>
+  </tbody>
+</table>
