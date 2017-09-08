@@ -36,6 +36,32 @@
         title: 'Select'
       });
 
+      $("#recipe_id").on("change", function(){
+         console.log('value from select:', $(this).val());
+
+         const recipeId = $(this).val();
+         // Do some AJAX get to get the recipe
+         console.log("http://localhost:1338/" + recipeId)
+            $.get("http://localhost:1338/" + recipeId, function(recipe){
+               if(typeof recipe.instructions != "undefined" && recipe.instructions.length > 0){
+                  recipe.instructions.forEach(function(instruction){
+                     $("#deleteInstructionTable").append(`
+                        <tr>
+                           <td>
+                              <form method="POST" action="/${recipeId}/deleteinstruction/${instruction.id}">
+                                 <button type="submit">DELETE!</button>
+                              </form>
+                           </td>
+                           <td>${ instruction.instruction }</td>
+                        </tr>
+                        `)
+                  })
+               }
+            })
+    })
+
+
+
 
    })
 
