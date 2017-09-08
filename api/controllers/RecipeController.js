@@ -175,84 +175,42 @@ module.exports = {
 
   },
 
-  /**
-   * `RecipeController.update()`
-   */
-  update: function(req, res) {
 
-    if (req.method != "POST") {
-
-      client.get(endpoint, function(data, response) {
-        return res.view('update', {
-          recipes: data
-        });
-      }).on('error', function(err) {
-        return res.view('update', {
-          error: {
-            message: "There was an error getting the recipes"
-          }
-        });
-      });
-
-    } else {
-
-      var args = {
-        data: req.body,
-        headers: {
-          "Content-Type": "application/json"
-        }
-      };
-
-      client.put(endpoint + "/" + req.body.recipe_id, args, function(data, response) {
-
-        if (response.statusCode != "200") {
-          req.addFlash("error", data.message);
-          return res.redirect('/update');
-        }
-
-        req.addFlash("success", "Record updated successfully");
-        return res.redirect('/update');
-
-      })
-
-    }
-  },
-
-  /**
-   * `RecipeController.delete()`
-   */
-  delete: function(req, res) {
-
-    if (req.method != "POST") {
-
-      client.get(endpoint, function(data, response) {
-        return res.view('delete', {
-          recipes: data
-        });
-      }).on('error', function(err) {
-        return res.view('delete', {
-          error: {
-            message: "There was an error getting the recipes"
-          }
-        });
-      });
-
-    } else {
-
-      client.delete(endpoint + "/" + req.body.recipe_id, function(data, response) {
-
-        if (response.statusCode != "200") {
-          req.addFlash("error", data.message);
-          return res.redirect('/delete');
-        }
-
-        req.addFlash("success", "Record deleted successfully");
-        return res.redirect('/delete');
-
-      })
-    }
-
-  },
+  // /**
+  //  * `RecipeController.delete()`
+  //  */
+  // delete: function(req, res) {
+  //
+  //   if (req.method != "POST") {
+  //
+  //     client.get(endpoint, function(data, response) {
+  //       return res.view('delete', {
+  //         recipes: data
+  //       });
+  //     }).on('error', function(err) {
+  //       return res.view('delete', {
+  //         error: {
+  //           message: "There was an error getting the recipes"
+  //         }
+  //       });
+  //     });
+  //
+  //   } else {
+  //
+  //     client.delete(endpoint + "/" + req.body.recipe_id, function(data, response) {
+  //
+  //       if (response.statusCode != "200") {
+  //         req.addFlash("error", data.message);
+  //         return res.redirect('/delete');
+  //       }
+  //
+  //       req.addFlash("success", "Record deleted successfully");
+  //       return res.redirect('/delete');
+  //
+  //     })
+  //   }
+  //
+  // },
 
 
   /**
