@@ -70,6 +70,7 @@ module.exports = {
         };
 
         client.post(`${endpoint}/${req.params.id}/instructions`, args, function (data, response) {
+        // client.post(`${endpoint}/0/instructions`, args, function (data, response) {
             // return res.view('createInstruction', {success: { message: "Record added successfully"}});
             if(response.statusCode != "200"){
                 req.addFlash("error", data.message.substring(data.message.indexOf("•")));
