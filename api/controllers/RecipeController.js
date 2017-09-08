@@ -76,18 +76,52 @@ module.exports = {
         }
       };
 
-      client.post(`${endpoint}/${req.params.id}/instructions`, args, function(data, response) {
-        // return res.view('createInstruction', {success: { message: "Record added successfully"}});
-        if (response.statusCode != "200") {
-          req.addFlash("error", data.message.substring(data.message.indexOf("•")));
-          return res.redirect('/createinstruction');
-        }
+        client.post(`${endpoint}/${req.params.id}/instructions`, args, function (data, response) {
+        // client.post(`${endpoint}/0/instructions`, args, function (data, response) {
+            // return res.view('createInstruction', {success: { message: "Record added successfully"}});
+            if(response.statusCode != "200"){
+                req.addFlash("error", data.message.substring(data.message.indexOf("•")));
+                return res.redirect('/createinstruction');
+            }
+
 
         req.addFlash("success", "Record created successfully");
         return res.redirect('/createinstruction');
 
       })
     }
+  },
+  /**
+   * `RecipeController.createIngredient()`
+   */
+  createIngredient: function (req, res) {
+
+      if(req.method === "GET"){
+        client.get(endpoint, function (data, response) {
+          return res.view('createingredient', { recipes: data });
+        })
+      }
+
+      if(req.method === "POST") {
+
+        var args = {
+            data: req.body,
+            headers: { "Content-Type": "application/json" }
+        };
+
+        client.post(`${endpoint}/${req.params.id}/ingredients`, args, function (data, response) {
+        // client.post(`${endpoint}/0/instructions`, args, function (data, response) {
+            // return res.view('createInstruction', {success: { message: "Record added successfully"}});
+            if(response.statusCode != "200"){
+                req.addFlash("error", data.message.substring(data.message.indexOf("•")));
+                return res.redirect('/createingredient');
+            }
+
+            req.addFlash("success", "Record created successfully");
+            return res.redirect('/createingredient');
+
+        })
+      }
   },
 
   /**
