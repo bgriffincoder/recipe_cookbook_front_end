@@ -46,6 +46,7 @@ module.exports.routes = {
   '/'         :'RecipeController.read',
   '/update'   :'RecipeController.update',
   '/delete'   :'RecipeController.delete',
+  '/search':'RecipeController.search',
   '/createinstruction':'RecipeController.createInstruction',
   '/:id/createinstruction':'RecipeController.createInstruction',
   '/:id'      :'RecipeController.show'

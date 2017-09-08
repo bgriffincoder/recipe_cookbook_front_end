@@ -5,6 +5,7 @@
  * @help        :: See http://sailsjs.org/#!/documentation/concepts/Controllers
  */
 
+
 const Client = require('node-rest-client').Client;
 const client = new Client();
 const endpoint = "https://evening-lake-62189.herokuapp.com/recipes";
@@ -109,7 +110,19 @@ module.exports = {
   //   });
   //
   // },
+  
+  /**
+   * `RecipeController.search()`
+   */
+  search: function (req, res) {
 
+    client.get(endpoint, function (data, response) {
+        return res.view('search', {recipes: data});
+    }).on('error', function (err) {
+        return res.view('search', {error: { message: "There was an error getting the recipes"}});
+    });
+
+  },
 
    /**
    * `RecipeController.update()`
